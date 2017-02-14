@@ -27,5 +27,12 @@ namespace QueenAttack
       Queen testResult = new Queen(5,3);
       Assert.Equal(true, testResult.CanAttack(testResult,4,2));
     }
+
+    [Fact]
+    public void QueenAttackResult_Wrong_false()
+    {
+      Queen testResult = new Queen(10,3);
+      Assert.Equal(false, testResult.CanAttack(testResult,4,2));
+    }
   }
 }
