@@ -8,10 +8,10 @@ namespace QueenAttack.Objects
     private int _queenXinput;
     private int _queenYinput;
 
-    public void Queen(int queenXinput, int queenYinput)
+    public Queen(int queenX, int queenY)
     {
-      _queenXinput = queenXinput;
-      _queenYinput = queenYinput;
+      _queenXinput = queenX;
+      _queenYinput = queenY;
     }
 
     public int GetQueenXinput()
@@ -37,13 +37,30 @@ namespace QueenAttack.Objects
     public bool CanAttack(Queen queen, int Xinput, int Yinput)
     {
       int qXCoord = queen.GetQueenXinput();
+      int qYCoord = queen.GetQueenYinput();
 
       //vertical
       if (Xinput == qXCoord)
       {
         return true;
       }
-      return false;
+
+      //horizontal
+      else if (Yinput == qYCoord)
+      {
+          return true;
+      }
+
+      else if(Math.Abs(Yinput - qYCoord) == Math.Abs(Xinput - qXCoord))
+      {
+        return true;
+      }
+
+      else
+      {
+        return  false;
+      }
+
     }
   }
 }
